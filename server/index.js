@@ -1,8 +1,21 @@
+require('dotenv').config();
+
 //create server
 const express = require ('express');
 const app = express();
+//import cors and body parser
+const cors = require ('cors');
+const bodyParser = require ('body-parser');
+
+
+//import database
+const db = require('./models');
+//use cors and body parser
+app.use(cors());
+app.use(bodyParser.json());
+
 //anything below 1000 is used by computer
-const port = 4000;
+const port = process.env.PORT;
 //start server
 app.get('/', (req,res)=>res.json({hello: 'Ebz'}));
 
